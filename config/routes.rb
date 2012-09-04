@@ -63,7 +63,7 @@
        resources :sessions
   #
   #    Locals : Formatierte Datumsausgabe | en.yml
-  #
+  #    git init-db : Initialized empty Git repository | .../ayofone_backend/.git/ 
   ################################################
 
   # The priority is based upon order of creation:
