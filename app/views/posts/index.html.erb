@@ -1,0 +1,14 @@
+<h1><%= link_to "Index", posts_path %></h1>
+
+<% if current_user %>
+	<% @post.each do |post| %>
+   		<h2><%= link_to post.title, post %></h2>
+    		<p><%= post.content %></p>
+    		<p><%= link_to "Update", edit_post_path(post) %></p>
+    		<p><%= link_to "Loeschen", post, :confirm => "Sicher?", :method => :delete %></p>
+    	<hr>
+	<% end %>
+
+<p><%= link_to "Eintrag hinzufügen", new_post_path %><p>
+<% end %>
+
