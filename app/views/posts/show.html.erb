@@ -1,5 +1,10 @@
     <h1><%= @post.title %></h1>
+    
     <p><%= @post.content %></p>
-    <p><%= link_to "Zum Index", posts_path %><p>
+    
     <small>Erstellt am <%= localize(@post.created_at, :format => :sample) %></small>
-  
+    
+    <p><%= link_to "Zum Index", posts_path %> | 
+       <%= link_to "Update", edit_post_path %> | 
+       <%= link_to "Löschen", :post, :confirm => "Sicher?", :method => :delete %>
+    </p>

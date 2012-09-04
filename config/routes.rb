@@ -63,7 +63,7 @@
        resources :sessions
   #
   #    Locals : Formatierte Datumsausgabe | en.yml
-  #    git init-db : Initialized empty Git repository | .../ayofone_backend/.git/ 
+  #    git init-db : Initialized empty Git repository | https://github.com/ssiemitkowski/playground
   ################################################
 
   # The priority is based upon order of creation:
