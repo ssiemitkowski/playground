@@ -1,28 +1,70 @@
-<h1>Registrierung</h1>
+
+<% if !current_user %>
+<%= link_to "Log in", new_session_path %>
+<hr>
+	<h1>Sign in</h1>
+  <% else %>
+<%= link_to "Log in", new_session_path %>
+<hr>
+	<h1>Benutzer einrichten</h1>
+<% end %>
+<hr>
 
 <%= form_for @user do |f| %>
+  
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2>Errors:</h2>
-      <ul>
+      <ul class="ul_errors">
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+  
   <p>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :password %><br />
+    <%= f.label :password, "Passwort" %><br />
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Passwort wiederholen"%><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p><%= f.submit "Registrieren"; %></p>
+
+  <% if current_user %>
+  <% if current_user.role == "Superadmin" %>
+    <p>
+    <%= f.label :role, "Rolle" %><br />
+    <%= f.select(:role, options_for_select([['Superadmin',"Superadmin"], ['Admin',"Admin"], ['Member',"Member"]]) ) %>
+  </p>
+  <% end %>
+    <% if current_user.role == "Admin" %>
+    <p>
+    <%= f.label :role, "Rolle" %><br />
+    <%= f.select(:role, options_for_select([['Admin',"Admin"], ['Member',"Member"]]) ) %>
+  </p>
+  <% end %>
+  <%else%>
+   	<%= hidden_field_tag 'user[role]', 'Member' %>
+  <% end %>
+
+<% if current_user %>  
+  <p><%= f.submit "Einrichten" %></p>
+<% else %>
+  <p><%= f.submit "Sign in" %></p>
 <% end %>
 
+<% end %>
+
+<% if current_user %>
+<hr>
+
+	<p>
+    	<%= link_to "Benutzer-Index", users_path %> |
+    	<%= link_to "Nachrichten-Index", posts_path %>
+    <p>
+<% end %>

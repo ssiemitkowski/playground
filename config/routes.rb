@@ -44,7 +44,7 @@
   #    todo : update aktion - Auswertung der erfolgreichen Änderung der Model-Attribute     # posts_controller.rb - If-Else-Kondition              |  if @post.update_attributes (params[:post]) ... else ...
   #    todo : update aktion - Flash-Hash füllen                                             # posts_controller.rb - Flash-Hash durchlaufen         |  :notice => "blah"  
   #                                                                                         #                                                      | 
-  #    todo : zur delete-mthode verlinken mit Java-Script Warnung ausgeben                  # index.html.erb - Route legen                         |  link_to "Loeschen", post, :confirm => "Sicher?", :method => :delete 
+  #    todo : zur delete-methode verlinken mit Java-Script Warnung ausgeben                 # index.html.erb - Route legen                         |  link_to "Loeschen", post, :confirm => "Sicher?", :method => :delete 
   #    todo : destroy aktion - Löschen                                                      # posts_controller.rb - Suchen und zerstören           | @post = Post.find(params[:id]) > @post.destroy
   #    todo : destroy aktion - Flash-Hash füllen                                            # posts_controller.rb - Weiterleitung und Rückmeldung  |  redirect_to posts_path, :notice => "Der Eintrag wurde geloescht."   
   #                                                                                         #                                                      |
@@ -58,12 +58,20 @@
        get "log_out" => "sessions#destroy", :as => "log_out"
        get "log_in"  => "sessions#new", :as => "log_in"
        get "sign_up" => "users#new", :as => "sign_up"
-       root :to => "users#new"
+       root :to => "posts#index"
        resources :users
        resources :sessions
   #
   #    Locals : Formatierte Datumsausgabe | en.yml
+  #    
   #    git init-db : Initialized empty Git repository | https://github.com/ssiemitkowski/playground
+  #    
+  #    rails g migration AddRoleToUser role:string | Tabellenerweiterung
+  #    
+  #    Rechte-Struktur: siehe view/posts/index.html.erb | Kommentare beschreiben das Rollen-Prinzip
+  #    
+  #    Snippet: <%= @user.errors.full_messages if @user.errors.any? %>
+  #
   ################################################
 
   # The priority is based upon order of creation:

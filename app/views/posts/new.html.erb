@@ -1,5 +1,7 @@
+<% if current_user %>
+<hr>
 <h1>Einen Eintrag hinzufügen</h1>
-
+<hr>
 <%= form_for @post do |f| %>
 
 <% if @post.errors.any? %>
@@ -22,4 +24,14 @@
 	<p>
 		<%= f.submit "Hinzufügen"; %>
 	</p>
+<% end %>
+<hr>
+<p><%= link_to "Nachrichten-Index", posts_path %><p>
+	
+<% else %>
+
+<p>
+	Sie habe keine Berechtigung, diesen Inhalt zu sehen.
+</p>
+
 <% end %>

@@ -12,5 +12,26 @@
  *= require_tree .
 */
 
+body { text-align:left; padding:44px 77px 22px 77px; color:#444; background-color:#fff; font-family:arial; font-size:14px; }
+
+h1 { font-size:1.7em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:2px 0 4px 0px; }
+h2 { font-size:1.2em; font-weight:normal; color:#444; margin:-4px 0 -27px 0; background-color:#fff;  padding:5px 0 11px 0; }
+p  { font-size:0.9em; font-weight:normal; color:#444; padding:10px 0 10px 0; margin:0;  }
+
 a       { color:#c23434; text-decoration:none;      }
 a:hover { color:#c23434; text-decoration:underline; }
+
+.content_txt { }
+
+#email,
+#user_email,
+#password,
+#user_password,
+#user_password_confirmation
+{ text-align:left; color:#c23234; }
+
+.ul_errors         { margin:20px 0 0 0; padding:0; }
+.ul_errors li      { list-style-type:none; margin:5px 0 0 0; padding:0; color:#c23234;  }
+.field_with_errors { padding:0px; margin:0; color:#c23234; }
+
+#flash_notice { color:#c23234; background-color:#f3f3f3; border:1px solid #dddddd; padding:10px; }

@@ -1,14 +1,69 @@
-<h1><%= link_to "Index", posts_path %></h1>
 
-<% if current_user %>
-	<% @post.each do |post| %>
-   		<h2><%= link_to post.title, post %></h2>
-    		<p><%= post.content %></p>
-    		<p><%= link_to "Update", edit_post_path(post) %> | 
-               <%= link_to "Löschen", post, :confirm => "Sicher?", :method => :delete %>
-            </p>
-    	<hr>
+<!-- ####################################################################################### Member : -->
+
+	<% if current_user %>
+
+	<hr>
+
+	<h1>Kundencenter</h1>
+
+		<% @post.each do |post| %>
+	
+			<hr>
+		
+   				<h2>
+   					<%= link_to post.title, post %>
+   				</h2>
+   			
+    				<p class="content_txt"><!-- Platzhalter --></p>
+    			
+						<small>
+							Nachricht vom <%= localize(post.created_at, :format => :sample) %>
+						</small>
+    				<p>
+    				
+<!-- ########################################################################### Superadmin | Admin : -->
+
+						<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
+    						<%= link_to "Update", edit_post_path(post) %>
+    					<% end %>
+
+<!-- ################################################################################### Superadmin : -->
+
+    					<% if current_user.role == "Superadmin" %>| 
+                			<%= link_to "Löschen", post, :confirm => "Sicher?", :method => :delete %>
+						<% end %>
+					</p>
+
+<!-- ########################################################################### Superadmin | Admin : -->    
+			
+			<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
+	
+				<hr>
+				<p>
+					<%= link_to "Nachricht hinzufügen", new_post_path %> |
+					<%= link_to "Benutzer Index", users_path %>
+    			<p>
+    			
+    		<% end %>
+	
+<!-- ################################################################################### Logged out : --> 
+	
+		<% end %>
+	
+	<% else %>
+
+		<p>
+			<%= link_to "Sign up", new_user_path %> |
+			<%= link_to "Log in", new_session_path %>
+		</p>
+		
+		<hr>
+			
+		<p>
+			Sie sind nicht eingeloggt.
+		</p>
+		
 	<% end %>
-	<p><%= link_to "Eintrag hinzufügen", new_post_path %><p>
-<% end %>
+
 

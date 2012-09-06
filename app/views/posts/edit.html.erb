@@ -1,4 +1,8 @@
-<h1>Eintrag ändern</h1>
+<hr>
+
+<h1>Nachricht ändern</h1>
+
+<hr>
 
 <%= form_for @post do |f| %>
 
@@ -12,17 +16,20 @@
 <% end %>
 
 	<p>
-		<%= f.label :title %><br />
+		<%= f.label :title, "Titel" %><br />
 		<%= f.text_field :title %>
 	</p>
 	<p>
-		<%= f.label :content %><br />
+		<%= f.label :content , "Nachricht"%><br />
 		<%= f.text_area :content %>
 	</p>
 	<p>
 		<%= f.submit "Update"; %>
 	</p>
 <% end %>
-<p><%= link_to "Zum Index", posts_path %> |
+
+<hr>
+
+<p><%= link_to "Nachrichten-Index", posts_path %> |
    <%= link_to "Löschen", :post, :confirm => "Sicher?", :method => :delete %>
 </p>
