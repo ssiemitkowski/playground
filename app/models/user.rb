@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
             attr_accessor :password
               before_save :encrypt_password
   
-validates_confirmation_of :password , :message => "Wiederholung fehlgeschlagen"
+validates_confirmation_of :password , :message => " Wiederholung fehlgeschlagen"
     validates_presence_of :password, :on => :create, :message => " ist Pflichtangabe"
     validates_presence_of :email , :message => " ist Pflichtangabe"
   validates_uniqueness_of :email

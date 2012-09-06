@@ -12,19 +12,32 @@
   <%= csrf_meta_tags %>
   
 </head>
+
 <body>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <br />
-<% end %>
+	<% flash.each do |name, msg| %>
+  		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+  		<br />
+	<% end %>
 
 <div>
+	
   <% if current_user %>
-    <p>Eingeloggt als <b><%= current_user.email %></b> (<%= current_user.role %>) | 
-    <%= link_to "Log out", log_out_path %>
+    
+    <p>
+    	Eingeloggt als <b><%= current_user.email %></b> (<%= current_user.role %>) |  
+    		
+    		<% if action_name != "show" or controller_name == "posts" %>
+			
+				<%= link_to "Konto", current_user %> |
+			
+			<% end %>
+		    
+   			<%= link_to "Log out", log_out_path %>
     </p>
+  
   <% end %>
+
 </div>
 
 <%= yield %>

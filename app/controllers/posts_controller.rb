@@ -2,6 +2,7 @@ class PostsController < ApplicationController
                      
   def index # posts_path
     @post = Post.all
+    @user = User.all
   end
   
   def show # post_path - einen individuellen post_path anzeigen

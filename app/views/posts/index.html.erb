@@ -15,17 +15,20 @@
    					<%= link_to post.title, post %>
    				</h2>
    			
-    				<p class="content_txt"><!-- Platzhalter --></p>
+    				<!-- <p class="content_txt"><pre> Platzhalter </pre></p> -->
     			
 						<small>
 							Nachricht vom <%= localize(post.created_at, :format => :sample) %>
 						</small>
-    				<p>
-    				
+						
 <!-- ########################################################################### Superadmin | Admin : -->
-
+						
+				<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>	
+    				<p>
+    		    <% end %>
+    				
 						<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
-    						<%= link_to "Update", edit_post_path(post) %>
+    							<%= link_to "Update", edit_post_path(post) %>
     					<% end %>
 
 <!-- ################################################################################### Superadmin : -->
@@ -33,8 +36,13 @@
     					<% if current_user.role == "Superadmin" %>| 
                 			<%= link_to "Löschen", post, :confirm => "Sicher?", :method => :delete %>
 						<% end %>
-					</p>
-
+						
+				<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>	
+    				</p>
+    		    <% end %>
+    		    
+		<% end %>
+		
 <!-- ########################################################################### Superadmin | Admin : -->    
 			
 			<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
@@ -49,7 +57,7 @@
 	
 <!-- ################################################################################### Logged out : --> 
 	
-		<% end %>
+		
 	
 	<% else %>
 

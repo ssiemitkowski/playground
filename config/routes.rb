@@ -70,8 +70,10 @@
   #    
   #    Rechte-Struktur: siehe view/posts/index.html.erb | Kommentare beschreiben das Rollen-Prinzip
   #    
-  #    Snippet: <%= @user.errors.full_messages if @user.errors.any? %>
-  #
+  #    Snippets: <%= @user.errors.full_messages if @user.errors.any? %> | Ausgabe Errors
+  #              <%= User.find(session[:user_id]).id => | current_user.id
+  #              <%= url_for :controller => 'users', :action => 'show', :id => current_user.id => | Pfad-Erstellung      
+  #              <%  if action_name != "show" %>
   ################################################
 
   # The priority is based upon order of creation:

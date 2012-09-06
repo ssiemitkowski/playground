@@ -14,11 +14,13 @@
   
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <ul class="ul_errors">
+      <ul class="ul_errors"><b>ERRORS:</b> 
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
         <% end %>
       </ul>
+      <br />
+      <hr>
     </div>
   <% end %>
   

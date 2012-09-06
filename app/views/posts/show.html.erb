@@ -4,15 +4,23 @@
     
     <hr>
     
-    <p class="content_txt"><pre><%= @post.content %></pre></p>
-    
-    <small>Nachricht am <%= localize(@post.created_at, :format => :sample) %></small>
-    
-    <p>
-    	<%= link_to "Update", edit_post_path %> |
-    		<%= link_to "Löschen", :post, :confirm => "Sicher?", :method => :delete %>
+    <p class="content_txt">
+    	
+    	<pre><%= @post.content %></pre>
+    	
+    	<small>
+    		Nachricht vom <%= localize(@post.created_at, :format => :sample) %>
+    	</small>
+    	
     </p>
     
+    
+    <% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
+    <p>
+    	<%= link_to "Update", edit_post_path %> |
+    	<%= link_to "Löschen", :post, :confirm => "Sicher?", :method => :delete %>
+    </p>
+    <% end %>
     <hr>
     
     <p>
