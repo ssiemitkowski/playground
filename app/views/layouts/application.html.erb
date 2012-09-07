@@ -1,46 +1,57 @@
 <!DOCTYPE html>
-<html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<head>
-<% if current_user != "Member" %>
-  <title>Kundencenter</title>
-<% else %>
-  <title>Administration</title>
-<% end %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<html>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<head>
+  				
+  				<title>Kundencenter</title>
+				
+  				<%= stylesheet_link_tag    "application", :media => "all" %>
+  				<%= javascript_include_tag "application" %>
+  				<%= csrf_meta_tags %>
   
-</head>
+			</head>
+	<body>
 
-<body>
+		<% flash.each do |name, msg| %>
+  			
+  			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+  		
+ 			<br />
 
-	<% flash.each do |name, msg| %>
-  		<%= content_tag :div, msg, :id => "flash_#{name}" %>
-  		<br />
-	<% end %>
-
+		<% end %>
+	
 <div>
 	
   <% if current_user %>
     
-    <p>
-    	Eingeloggt als <b><%= current_user.email %></b> (<%= current_user.role %>) |  
+    <p id="user_info">
+    	Eingeloggt als <b><%= current_user.email %></b> (<%= current_user.role %>) | <b>Kontostand:</b> 20,00 Euro | <b>Ayofone-ID:</b> 123456 |  
     		
     		<% if action_name != "show" or controller_name == "posts" %>
 			
 				<%= link_to "Konto", current_user %> |
 			
 			<% end %>
+			
+			<% if action_name == "show" and controller_name == "users" %>
+			
+				<%= link_to "Konto verlassen", posts_path %> |
+			
+			<% end %>
 		    
    			<%= link_to "Log out", log_out_path %>
     </p>
-  
+    
+    <% if action_name != "show" or controller_name == "posts" %>
+    <hr /> 
+    <% end %>
+    
   <% end %>
+  
+	</div>
 
-</div>
-
-<%= yield %>
+		<%= yield %>
 
 </body>
+
 </html>

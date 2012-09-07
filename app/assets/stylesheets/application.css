@@ -14,8 +14,18 @@
 
 body { text-align:left; padding:44px 77px 22px 77px; color:#444; background-color:#fff; font-family:arial; font-size:14px; }
 
-h1 { font-size:1.8em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:5px 0 10px 0px; }
-h2 { font-size:1.2em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:0px 0 15px 0; }
+.aktiviert   { color:#060; }
+.deaktiviert { color:#900; }
+.gesperrt    { color:#000; text-decoration:line-through;  }
+
+#kundencenter_nav { background-color:#f3f3f3; padding:5px; border-top:1px solid #444; }
+#konto_nav        { background-color:#f3f3f3; padding:5px; border-bottom:1px solid #444; }
+#user_info        { background-color:#ffffff; margin-bottom:7px; }
+
+hr { color:#f3f3f3; height:1px; background-color:#f3f3f3; }
+
+h1 { font-size:2.0em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:5px 0 9px 0px; }
+h2 { font-size:1.2em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:0 0 15px 0; }
 p  { font-size:0.9em; font-weight:normal; color:#444; padding:5px 0 0 0; margin:0;  }
 
 a       { color:#c23434; text-decoration:none;      }

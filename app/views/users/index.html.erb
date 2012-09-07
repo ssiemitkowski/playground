@@ -1,37 +1,101 @@
 <% if current_user and current_user.role != "Member" %>
-<hr>
-	<h1>Benutzer-Liste</h1>
-<hr>
+	<hr>
+		<h1>Benutzer-Liste</h1>
+	<hr>
+	
 	<% @user.each do |user| %>
-		<p>Benutzer: <%= user.email %>
-			<% if current_user == "Superadmin" %>
-		    <br />Passwort-Hash: <%= user.password_hash %>
-			<% end %>
-			<br />
-   	       Rolle: <%= user.role %>
-		</p>
-    	<small>
-    		Eingerichtet am <%= localize(user.created_at, :format => :sample) %>
-    	</small>
-    		<% if current_user.role == "Superadmin" or current_user.role == "Admin" and user.role != "Superadmin" %> 
-    	<p>
-    		<%= link_to "Update", edit_user_path(user) %>
-    		<% end %>	
-    	   	<% if user != current_user and current_user.role == "Superadmin" %> |
-           		<%= link_to "Löschen", user, :confirm => "Sicher?", :method => :delete %>
-           	<% end %>
-        </p>
-    		<hr>
-		<% end %>
-		<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
+		
 		<p>
-			<%= link_to "Benutzer hinzufügen", new_user_path %> |
-			<%= link_to "Nachrichten-Index", posts_path %>
+			Benutzer: <%= user.email %>
+		</p>
+			
+		<% if current_user == "Superadmin" %>
+		
+			<p>
+				Passwort-Hash: <%= user.password_hash %>
+	    	</p>
+	    
+		<% end %>
+			
+   	    <p>
+   	    	Rolle: <%= user.role %>
+   	    </p>
+   	    
+   	    <p>
+   	    	Status: 
+   	    	
+   	    	<% if user.status == "aktiviert" %>
+   	    	
+   	    		<b class="aktiviert">
+   	    			
+   	    	<% end %>
+   	    	
+    	    <% if user.status == "deaktiviert" %>
+   	    	
+   	    		<b class="deaktiviert">
+   	    			
+   	    	<% end %>
+   	    	
+   	    	<% if user.status == "gesperrt" %>
+   	    	
+   	    		<b class="gesperrt">
+   	    			
+   	    	<% end %>      
+   	    
+   	    		<%= user.status %>
+   	    	
+			</b>
+			
+		</p>
+		
     	<p>
+    		<small>
+    			Eingerichtet am <%= localize(user.created_at, :format => :sample) %>
+    		</small>
+    	</p>
+    		
+    	<% if current_user.role == "Superadmin" or current_user.role == "Admin"  %> 
+    	
+    		<p>
+    			<%= link_to "Update", edit_user_path(user) %>
+    	
+    	<% end %>	
+    	
+    	   	
+    	<% if user != current_user and current_user.role == "Superadmin" and user.status == "deaktiviert" %> |
+           		
+           		<%= link_to "Löschen", user, :confirm => "Sicher? Der Datensatz wird vollständig aus dem System entfernt!", :method => :delete %>
+        
+        <% end %>
+
+    	<% if user == current_user and user.status != "gesperrt"  %> |
+        
+               Der eingeloggte Benutzer-Account kann lediglich gesperrt werden.
+        
+        <% end %>
+        
+        	</p>
+        	
+        		<hr>
+		
+		<% end %>
+		
+		<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
+
+			<p>
+				<%= link_to "Benutzer hinzufügen", new_user_path %> |
+				<%= link_to "Nachrichten-Index", posts_path %>
+    		<p>
+
     	<% end %>
+
 <% else %>
+
 	<p>Sie habe keine Berechtigung, diesen Inhalt zu sehen.
+
 		<hr>
+
 			<%= link_to "Post-Index", posts_path %>
 	</p>
+
 <% end %>

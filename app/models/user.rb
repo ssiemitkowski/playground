@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
           attr_accessible :email, 
                           :password, 
                           :password_confirmation,
-                          :role
+                          :role,
+                          :status
   
             attr_accessor :password
               before_save :encrypt_password

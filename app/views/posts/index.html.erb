@@ -3,10 +3,12 @@
 
 	<% if current_user %>
 
-	<hr>
-
 	<h1>Kundencenter</h1>
-
+    
+    	<p>
+    	  Hallo Herr Siemitkowski - wir wünschen Ihnen viel Vergnügen beim günstiger Telefonieren!
+    	</p>
+    	
 		<% @post.each do |post| %>
 	
 			<hr>
@@ -15,7 +17,7 @@
    					<%= link_to post.title, post %>
    				</h2>
    			
-    				<!-- <p class="content_txt"><pre> Platzhalter </pre></p> -->
+    				<!-- <p class="content_txt"><pre><%= post.content %></pre></p> -->
     			
 						<small>
 							Nachricht vom <%= localize(post.created_at, :format => :sample) %>
@@ -41,6 +43,7 @@
     				</p>
     		    <% end %>
     		    
+
 		<% end %>
 		
 <!-- ########################################################################### Superadmin | Admin : -->    

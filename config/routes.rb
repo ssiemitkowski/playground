@@ -1,3 +1,5 @@
+  
+  #    GESCHEIT ODER GESCHEITERT ...
   # 1. ################################ CONTROLLER ANLEGEN :
   #    term :rails g controller posts # controller stets plural | model stets singular
   # 2. #################################### VIEW ANLEGEN :
@@ -66,8 +68,25 @@
   #    
   #    git init-db : Initialized empty Git repository | https://github.com/ssiemitkowski/playground
   #    
-  #    rails g migration AddRoleToUser role:string | Tabellenerweiterung
-  #    
+  #    rails g migration AddRoleToUser role:string | Tabellenerweiterungen ...
+  #    rails g migration AddStatusToUser status:string
+  #    rails g migration AddBenutzernameToUser benutzername:string 
+  #    rails g migration AddBenutzernameToUser benutzerkennung:string
+  #    rails g migration AddFirmaToUser firma:string
+  #    rails g migration AddAnredeToUser anrede:string
+  #    rails g migration AddVornameToUser vorname:string
+  #    rails g migration AddNachnameToUser nachname:string
+  #    rails g migration AddStrasseToUser strasse:string
+  #    rails g migration AddHausnummerToUser hausnummer:string
+  #    rails g migration AddPostleitzahlToUser postleitzahl:number
+  #    rails g migration AddOrtToUser ort:string
+  #    rails g migration AddLandToUser land:string
+  #    rails g migration AddZeitzoneToUser zeitzone:string
+  #    rails g migration AddTelefonToUser telefon:string
+  #    rails g migration AddMobileToUser mobile:string
+  #    rails g migration AddSteuernummerToUser steuernummer:string
+  #    rails g migration AddGeburtsdatumToUser geburtsdatum:date
+  #
   #    Rechte-Struktur: siehe view/posts/index.html.erb | Kommentare beschreiben das Rollen-Prinzip
   #    
   #    Snippets: <%= @user.errors.full_messages if @user.errors.any? %> | Ausgabe Errors

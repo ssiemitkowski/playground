@@ -37,6 +37,10 @@
     	<%= f.label :role, "Rollen" %><br />
     	<%= f.select(:role, options_for_select([['Superadmin',"Superadmin"], ['Admin',"Admin"], ['Member',"Member"]]) ) %>
     </p>
+    <p>
+    	<%= f.label :status, "Status" %><br />
+    	<%= f.select(:status, options_for_select([['aktiviert',"aktiviert"], ['deaktiviert',"deaktiviert"], ['gesperrt',"gesperrt"]]) ) %>
+    </p>
     <% else %>
     <p>
     	<%= f.label :role, "Rollen" %><br />
@@ -45,6 +49,7 @@
   <% end %>
   
   <p><%= f.submit "Update"; %></p>
+
 <% end %>
 
 <hr>
