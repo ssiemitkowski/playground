@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  def index # posts_path
+  def index
     @user = User.all 
   end
   

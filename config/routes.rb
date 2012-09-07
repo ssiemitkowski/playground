@@ -15,7 +15,7 @@
   #    term :rails c                                                                # irb shell (Schnittstelle Ruby-SQL)
   #    irbs :post = Post.new(:title => "Eintrag 1", :content => "Inhalt Eintrag 1") # legt Post-Daten als Objekt in den Memory
   #    irbs :post.save                                                              # speichert in DB 
-  #    info :Post.create (:title="bla", :content => "blablah")                      # Eintrag wird sofort in die DB geschrieben
+  #    info :Post.create (:title="bla", :content="blablah")                         # Eintrag wird sofort in die DB geschrieben
   #    info :post = Post.find(1)                                                    # Eintrag mit ID 1 wird ausgegeben
   #    info :post = Post.all                                                        # alle einträge werden gelistet
   #    info :post.title = "blah" > post.save                                        # update eines attributes mit save abschlieszen
