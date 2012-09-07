@@ -63,6 +63,7 @@
        root :to => "posts#index"
        resources :users
        resources :sessions
+       resources :accounts
   #
   #    Locals : Formatierte Datumsausgabe | en.yml
   #    
@@ -93,8 +94,18 @@
   #              <%= User.find(session[:user_id]).id => | current_user.id
   #              <%= url_for :controller => 'users', :action => 'show', :id => current_user.id => | Pfad-Erstellung      
   #              <%  if action_name != "show" %>
-  ################################################
-
+  #
+  #    rails g controller accounts title:string > API-Einbindung über den Show-View
+  #    rails g model account title:string
+  #
+  #########################################################################
+       
+       
+       
+       
+       
+       
+       
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -2,7 +2,6 @@ class PostsController < ApplicationController
                      
   def index # posts_path
     @post = Post.all
-    @user = User.all
   end
   
   def show # post_path - einen individuellen post_path anzeigen
@@ -38,7 +37,7 @@ class PostsController < ApplicationController
   def destroy # kein View - nur Prozess - kein Pfad - löscht Daten aus der Datenbank
     @post = Post.find(params[:id])
     @post.destroy
-      redirect_to posts_path, :notice => "Gesperrt."
+      redirect_to posts_path, :notice => "Der Eintrag wurde unwiederruflich aus dem System entfernt."
   end
   
 end

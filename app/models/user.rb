@@ -4,8 +4,24 @@ class User < ActiveRecord::Base
                           :password, 
                           :password_confirmation,
                           :role,
-                          :status
-  
+                          :status,
+                          :benutzername,
+                          :benutzerkennung,
+                          :firma,
+                          :anrede,
+                          :vorname,
+                          :nachname,
+                          :strasse,
+                          :hausnummer,
+                          :postleitzahl,
+                          :ort,
+                          :land,
+                          :zeitzone,
+                          :telefon,
+                          :mobile,
+                          :steuernummer,
+                          :geburtsdatum
+
             attr_accessor :password
               before_save :encrypt_password
   

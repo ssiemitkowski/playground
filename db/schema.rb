@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120907083515) do
+ActiveRecord::Schema.define(:version => 20120907145621) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "kontos", :force => true do |t|
+    t.string   "title"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -24,10 +37,26 @@ ActiveRecord::Schema.define(:version => 20120907083515) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "role"
     t.string   "status"
+    t.string   "benutzername"
+    t.string   "benutzerkennung"
+    t.string   "firma"
+    t.string   "anrede"
+    t.string   "vorname"
+    t.string   "nachname"
+    t.string   "strasse"
+    t.string   "hausnummer"
+    t.decimal  "postleitzahl"
+    t.string   "ort"
+    t.string   "land"
+    t.string   "zeitzone"
+    t.string   "telefon"
+    t.string   "mobile"
+    t.string   "steuernummer"
+    t.date     "geburtsdatum"
   end
 
 end

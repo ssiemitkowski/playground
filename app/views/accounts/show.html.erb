@@ -1,0 +1,32 @@
+
+	<% if current_user %>
+
+		<p id="kundencenter_nav">
+       		<%= link_to "Startseite", account_path(1) %> | 
+       		<%= link_to "So funktioniert's", account_path(2) %> | 
+       		<%= link_to "Tarifübersicht", account_path(3) %> | 
+       		<%= link_to "FAQ", account_path(4) %> 
+   		</p>
+    
+    	<h1>
+    		<% if @account.title != "Konto aufladen" %> 
+    		
+    			Konto - <%= @account.title %>
+    			
+    		<% else %>
+    		
+    			<%= @account.title %>
+    		
+    		<% end %>
+    	</h1>
+    
+    	<p id="konto_nav">
+       		<%= link_to "Konto aufladen", account_path(5) %> | 
+       		<%= link_to "Telefonbuch", account_path(6) %> | 
+       		<%= link_to "Ayofone-Phone", account_path(7) %> | 
+       		<%= link_to "SMS", account_path(8) %> | 
+       		<%= link_to "Rechungen", account_path(9) %> |
+       		<%= link_to "Einstellungen", account_path(10) %> 
+    	</p>
+    	
+	<% end %>

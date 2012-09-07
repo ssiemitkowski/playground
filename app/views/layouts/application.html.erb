@@ -27,13 +27,13 @@
     <p id="user_info">
     	Eingeloggt als <b><%= current_user.email %></b> (<%= current_user.role %>) | <b>Kontostand:</b> 20,00 Euro | <b>Ayofone-ID:</b> 123456 |  
     		
-    		<% if action_name != "show" or controller_name == "posts" %>
+    		<% if action_name != "show" or controller_name == "posts"  %>
 			
-				<%= link_to "Konto", current_user %> |
+				<%= link_to "Ihr Konto", account_path(1) %> |
 			
 			<% end %>
 			
-			<% if action_name == "show" and controller_name == "users" %>
+			<% if action_name == "show" and controller_name == "users" or controller_name == "accounts" %>
 			
 				<%= link_to "Konto verlassen", posts_path %> |
 			
