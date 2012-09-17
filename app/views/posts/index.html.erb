@@ -2,12 +2,14 @@
 <!-- ####################################################################################### Member : -->
 
 	<% if current_user %>
-
-	<h1>Kundencenter</h1>
+	
+    <% if action_name != "show" %>
     
-    	<p>
-    	  Hallo Herr Siemitkowski - wir wünschen Ihnen viel Vergnügen beim günstiger Telefonieren!
-    	</p>
+    	<hr /> 
+    		
+    <% end %>
+    
+	<h1>Kundencenter</h1>
     	
 		<% @post.each do |post| %>
 	
@@ -16,7 +18,7 @@
    				<h2>
    					<%= link_to post.title, post %>
    				</h2>
-   			
+   				
     				<!-- <p class="content_txt"><pre><%= post.content %></pre></p> -->
     			
 						<small>
@@ -45,18 +47,6 @@
     		    
 
 		<% end %>
-		
-<!-- ########################################################################### Superadmin | Admin : -->    
-			
-			<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
-	
-				<hr>
-				<p>
-					<%= link_to "Nachricht hinzufügen", new_post_path %> |
-					<%= link_to "Benutzer Index", users_path %>
-    			<p>
-    			
-    		<% end %>
 	
 <!-- ################################################################################### Logged out : --> 
 	
@@ -65,8 +55,8 @@
 	<% else %>
 
 		<p>
-			<%= link_to "Sign up", new_user_path %> |
-			<%= link_to "Log in", new_session_path %>
+			<%= link_to "Sign up", new_user_path %> | <%= link_to "Log in", new_session_path %>
+
 		</p>
 		
 		<hr>

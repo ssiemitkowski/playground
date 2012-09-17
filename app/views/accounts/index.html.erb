@@ -1,0 +1,24 @@
+<% if User.find(session[:user_id]).role == "Superadmin" %>
+    	<hr /> 
+	
+	<h1>Administration</h1>
+
+<% @account.each do |account| %>
+	
+			<hr>
+		        <p>
+		        	ID: <%= account.id %> | <%= link_to account.title, account %>
+   				 </p>
+   				    			
+				<small>
+					Erstell-Datum: <%= localize(account.created_at, :format => :sample) %>
+				</small>
+				<p>	
+					<%= link_to "Update", edit_account_path(account) %>
+				</p>
+				
+<% end %>
+				<hr>
+				
+				<%= link_to "Neuen Kontobereich", new_account_path %>
+<% end %>

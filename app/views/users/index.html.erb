@@ -1,5 +1,13 @@
 <% if current_user and current_user.role != "Member" %>
+
+   	<% if action_name != "show" %>
+    
+    	<hr /> 
+    		
+    <% end %>
+
 		<h1>Benutzer-Liste</h1>
+	
 	<hr>
 	
 	<% @user.each do |user| %>
@@ -69,7 +77,7 @@
 
     	<% if user == current_user and user.status != "gesperrt"  %> |
         
-               Der eingeloggte Benutzer-Account kann lediglich gesperrt werden.
+               Der eingeloggte Benutzer-Account kann nicht gelöscht werden.
         
         <% end %>
         
@@ -83,18 +91,18 @@
 
 			<p>
 				<%= link_to "Benutzer hinzufügen", new_user_path %> |
-				<%= link_to "Nachrichten-Index", posts_path %>
+				<%= link_to "Kundencenter", posts_path %>
     		<p>
 
     	<% end %>
 
 <% else %>
 
-	<p>Sie habe keine Berechtigung, diesen Inhalt zu sehen.
+	<p>Sie sind nicht eingeloggt.
 
 		<hr>
 
-			<%= link_to "Post-Index", posts_path %>
+			<%= link_to "Log in", new_session_path %>
 	</p>
 
 <% end %>

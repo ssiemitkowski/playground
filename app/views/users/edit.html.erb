@@ -1,4 +1,9 @@
-
+   	<% if action_name == "edit" %>
+    
+    	<hr /> 
+    		
+    <% end %>
+    
 <h1>Benutzer ändern</h1>
 
 <hr>
@@ -16,46 +21,155 @@
     </div>
   <% end %>
   
-  <p> <small>Freilassen = Keine Änderung</small>
-  </p>
-  <p>
+<p>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </p>
+  
+  <p>
+    &nbsp;
+  </p>
+  
   <p>
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </p>
+  
   <p>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
   
+  <small>
+  	<strong>
+  		Hinweis zur Änderung des Passwortes:
+  	</strong>
+  	<br />
+  	Kein Eintrag - keine Änderung.
+  </small>
+  
   <% if current_user.role =="Superadmin" %>
+    
+    <h2>
+    	
+    	Administration
+    	
+    </h2>
+       
     <p>
-    	<%= f.label :role, "Rollen" %><br />
-    	<%= f.select(:role, options_for_select([['Superadmin',"Superadmin"], ['Admin',"Admin"], ['Member',"Member"]]) ) %>
+    	<%= f.label :role, "Rolle" %><br />
+    	<%= f.select(:role, options_for_select([['Superadmin',"Superadmin"], ['Admin',"Admin"], ['Member',"Member" ]], User.find(params[:id]).role )) %>
     </p>
+    
     <p>
     	<%= f.label :status, "Status" %><br />
-    	<%= f.select(:status, options_for_select([['aktiviert',"aktiviert"], ['deaktiviert',"deaktiviert"], ['gesperrt',"gesperrt"]]) ) %>
+    	<%= f.select(:status, options_for_select([['aktiviert',"aktiviert"], ['deaktiviert',"deaktiviert"], ['gesperrt',"gesperrt"]], User.find(params[:id]).status )) %>
     </p>
-    <% else %>
+    
     <p>
-    	<%= f.label :role, "Rollen" %><br />
+    	&nbsp;
+    </p>
+    	
+    <p>
+    	<%= f.label :benutzername, "Benutzername" %><br />
+    	<%= f.text_field :benutzername %>
+    </p>
+    
+    <p>
+    	<%= f.label :benutzerkennung, "Benutzerkennung" %><br />
+    	<%= f.text_field :benutzerkennung %>
+    </p>
+    
+    <p>
+    	<%= f.label :firma, "Firma" %><br />
+    	<%= f.text_field :firma %>
+    </p>
+    
+    <p>
+    	<%= f.label :anrede, "Anrede" %><br />
+    	<%= f.text_field :anrede %>
+    </p>
+    
+    <p>
+    	<%= f.label :vorname, "Vorname" %><br />
+    	<%= f.text_field :vorname %>
+    </p>
+    
+    <p>
+    	<%= f.label :nachname, "Nachname" %><br />
+    	<%= f.text_field :nachname %>
+    </p>
+    
+    <p>
+    	<%= f.label :strasse, "Strasse" %><br />
+    	<%= f.text_field :strasse %>
+    </p>
+    
+    <p>
+    	<%= f.label :hausnummer, "Hausnummer" %><br />
+    	<%= f.text_field :hausnummer %>
+    </p>
+    
+    <p>
+    	<%= f.label :postleitzahl, "Postleitzahl" %><br />
+    	<%= f.text_field :postleitzahl %>
+    </p>
+    
+    <p>
+    	<%= f.label :ort, "Ort" %><br />
+    	<%= f.text_field :ort %>
+    </p>
+    
+    <p>
+    	<%= f.label :land, "Land" %><br />
+    	<%= f.text_field :land %>
+    </p>
+    
+    <p>
+    	<%= f.label :zeitzone, "Zeitzone" %><br />
+    	<%= f.text_field :zeitzone %>
+    </p>
+    
+    <p>
+    	<%= f.label :telefon, "Telefon" %><br />
+    	<%= f.text_field :telefon %>
+    </p>
+    
+    <p>
+    	<%= f.label :mobile, "Mobil" %><br />
+    	<%= f.text_field :mobile %>
+    </p>
+    
+    <p>
+    	<%= f.label :steuernummer, "Steuernummer" %><br />
+    	<%= f.text_field :steuernummer %>
+    </p>
+    
+    <p>
+    	<%= f.label :geburtsdatum, "Geburtsdatum" %><br />
+    	<%= f.text_field :geburtsdatum %>
+    </p>
+    
+    <% else %>
+    
+    <h2>
+    	Administration
+    </h2>
+    
+    <p>
+    	<%= f.label :role, "Rolle" %><br />
     	<%= f.select(:role, options_for_select([['Admin',"Admin"], ['Member',"Member"]]) ) %>
     </p>
+    
   <% end %>
   
-  <p><%= f.submit "Update"; %></p>
+  <p id="submit"><%= f.submit "Update"; %></p>
 
 <% end %>
 
 <hr>
 	<p>
-		<%= link_to "Post hinzufügen", new_post_path %> | 
-		<%= link_to "Benutzer hinzufügen", new_user_path %> |
-    	<%= link_to "Zum Benutzer-Index", users_path %> |
-		<%= link_to "Zum Post-Index", posts_path %>
+    	<%= link_to "Kundencenter", posts_path %> |
+    	<%= link_to "Benutzer verwalten", users_path %>
     <p>
 

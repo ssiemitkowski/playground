@@ -98,6 +98,8 @@
   #    rails g controller accounts title:string > API-Einbindung über den Show-View
   #    rails g model account title:string
   #
+  #    User.find(params[:id]).role : Parameter-Abfrage
+  #
   #########################################################################
        
        

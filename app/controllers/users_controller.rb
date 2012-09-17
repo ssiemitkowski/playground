@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update 
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-         redirect_to users_path, :notice => "Gespeichert."
+         redirect_to :back, :notice => "Gespeichert."
       else
         render "edit"
     end

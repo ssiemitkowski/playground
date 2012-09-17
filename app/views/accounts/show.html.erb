@@ -1,9 +1,326 @@
-
-
-<% if current_page?(:id=> '10') == true and controller_name == "accounts" %> <!-- Einstellungen -->
-
-	<p>
-		Persönliche Daten | Zusätzliche Rufnummer | E-Mail-Adresse ändern | Passwort ändern | Tarifansage | Automatische Aufladung
-	</p>
 	
-<%end %>
+	<!-- ############ Einstellungen Beginn ####################################################################### -->
+	
+	<% if controller_name == "accounts" and @account.id >= 10 and @account.id <= 16 %> <!-- Subnav (Einstellungen) -->
+
+		<p id="konto_subnav">
+		
+       		<%= link_to "Persönliche Daten", account_path(11) %> | <%= link_to "Zusätzliche Rufnummern", account_path(12) %> | <%= link_to "E-Mail-Adresse ändern", account_path(13) %> | <%= link_to "Passwort ändern", account_path(14) %> | <%= link_to "Tarifansage", account_path(15) %> | <%= link_to "Automatische Aufladung", account_path(16) %>
+		
+		</p>
+		
+		<h2>
+	
+			<%= @account.title %>
+	
+		</h2>
+		
+	<!-- ############ Einstellungen - Startseite ################################################################### -->
+	
+		<% if current_page?(:id=> '10') == true and controller_name == "accounts" %>
+        
+			<p>
+		
+				Hier können Sie Ihre Persönlichen Daten verwalten, zusätzliche Rufnummern einrichten, Ihre E-Mail-Adresse und Ihr Passwort ändern, Tarifansagen einstellen und eine automatische Aufladung einrichten.
+	
+			</p>
+	
+		<%end %>
+		
+	<!-- ############ Einstellungen - Persönliche Daten ################################################################### -->
+		
+		<% if current_page?(:id=> '11') == true and controller_name == "accounts" %> <!-- Einstellungen - Persönliche Daten -->
+		
+		<% if current_user.errors.any? %>
+   			<div class="error_messages">
+      			<h2>Errors:</h2>
+      				<ul>
+        				<% for message in current_user.errors.full_messages %>
+          					<li><%= message %></li>
+        				<% end %>
+      				</ul>
+    		</div>
+  		<% end %>
+  
+<%= form_for current_user do |f| %>
+    	
+    <p class="disabled" >
+    	<%= f.label :benutzername, "Benutzername" %><br />
+    	<%= f.text_field :benutzername, :disabled => true %>
+    </p>
+    
+    <p class="disabled" >
+    	<%= f.label :benutzerkennung, "Benutzerkennung" %><br />
+    	<%= f.text_field :benutzerkennung, :disabled => true %>
+    </p>
+    
+    <p>
+    	<%= f.label :firma, "Firma" %><br />
+    	<%= f.text_field :firma %>
+    </p>
+    
+    <p class="disabled" >
+    	<%= f.label :anrede, "Anrede" %><br />
+    	<%= f.text_field :anrede, :disabled => true %>
+    </p>
+    
+    <p class="disabled" >
+    	<%= f.label :vorname, "Vorname" %><br />
+    	<%= f.text_field :vorname, :disabled => true %>
+    </p>
+    
+    <p class="disabled" >
+    	<%= f.label :nachname, "Nachname" %><br />
+    	<%= f.text_field :nachname, :disabled => true %>
+    </p>
+    
+    <p>
+    	<%= f.label :strasse, "Strasse*" %><br />
+    	<%= f.text_field :strasse %>
+    </p>
+    
+    <p>
+    	<%= f.label :hausnummer, "Hausnummer*" %><br />
+    	<%= f.text_field :hausnummer %>
+    </p>
+    
+    <p>
+    	<%= f.label :postleitzahl, "Postleitzahl*" %><br />
+    	<%= f.text_field :postleitzahl %>
+    </p>
+    
+    <p>
+    	<%= f.label :ort, "Ort*" %><br />
+    	<%= f.text_field :ort %>
+    </p>
+    
+    <p>
+    	<%= f.label :land, "Land*" %><br />
+    	<%= f.text_field :land %>
+    </p>
+    
+    <p>
+    	<%= f.label :zeitzone, "Zeitzone*" %><br />
+    	<%= f.text_field :zeitzone %>
+    </p>
+    
+    <p>
+    	<%= f.label :telefon, "Telefon" %><br />
+    	<%= f.text_field :telefon %>
+    </p>
+    
+    <p >
+    	<%= f.label :mobile, "Mobil" %><br />
+    	<%= f.text_field :mobile %>
+    </p>
+    
+    <p>
+    	<%= f.label :steuernummer, "Steuernummer" %><br />
+    	<%= f.text_field :steuernummer %>
+    </p>
+    
+    <p class="disabled" >
+    	<%= f.label :geburtsdatum, "Geburtsdatum" %><br />
+    	<%= f.text_field :geburtsdatum, :disabled => true %>
+    </p>
+  
+    <p id="submit">
+    	<%= f.submit "Update"; %>
+    </p>
+    
+    <p>
+    	Alle mit *(Sternchen) markierten Felder sind Pflichtfelder.
+    </p>
+    
+<% end %>
+
+		</p>		  
+		
+	
+		<%end %>
+		
+	<!-- ############ Einstellungen - Zusätzliche Rufnummern ################################################################### -->
+		 
+		<% if current_page?(:id=> '12') == true and controller_name == "accounts" %> <!-- Einstellungen - Zusätzliche Rufnummern -->
+		
+		<p>
+		
+			Hier können Sie zusätzliche Rufnummern eintragen, mit denen Sie Ayofone nutzen möchten.
+	
+		</p>		  
+		
+	
+		<%end %>
+		
+	<!-- ############ Einstellungen - E-Mail-Adresse ändern ################################################################### -->
+		
+		<% if current_page?(:id=> '13') == true and controller_name == "accounts" %> <!-- Einstellungen - E-Mail-Adresse ändern -->
+		
+		<p>
+		
+			E-Mail-Adresse (Formular-Darstellung)
+	
+		</p>		  
+		
+	
+		<%end %>
+		
+	<!-- ############ Einstellungen - Passwort ändern #################################################################### -->
+		
+		<% if current_page?(:id=> '14') == true and controller_name == "accounts" %> <!-- Einstellungen - Passwort ändern  -->
+		
+		<p>
+		
+			Passwort (Formular-Darstellung)
+	
+		</p>		  
+		
+	
+		<%end %>
+		
+	<!-- ############ Einstellungen - Tarifansage ################################################################### -->
+		
+		<% if current_page?(:id=> '15') == true and controller_name == "accounts" %> <!-- Einstellungen - Tarifansage -->
+		
+		<p>
+		
+			Weltweite Tarife.
+	
+		</p>		  
+		
+	
+		<%end %>
+		
+	<!-- ############ Einstellungen - Automatische Aufladung ################################################################### -->
+		
+		<% if current_page?(:id=> '16') == true and controller_name == "accounts" %> <!-- Einstellungen - Automatische Aufladung -->
+		
+		<p>
+		
+			Formular
+	
+		</p>		  
+		
+	
+		<%end %>
+  	
+  	<!-- ############ Einstellungen Ende ############################################################### -->
+  	
+  	<% end %>
+  	
+  	<!-- ############ Administration  ################################################################## -->
+		
+		<% if current_page?(:id=> '17') == true %> <!-- Administration -->
+		
+			<% if current_user.role == "Superadmin" or current_user.role == "Admin" %>
+	
+				<p>
+				
+					<%= link_to "Kunden-Information hinzufügen", new_post_path %> |
+					<%= link_to "Benutzer verwalten", users_path %>
+					
+					<% if current_user.role == "Superadmin" %>		
+			
+						| <%= link_to "Konto-Bereiche verwalten", accounts_path %>
+						
+    				<% end %>
+    			
+    			<p>
+    				
+				<h2>
+	
+					<%= @account.title %>
+	
+				</h2>
+				
+				<% if current_user.role == "Superadmin" %>
+				
+					<p>
+						Hier können die Kunden-Informationen des Kundencenters, die Benutzerdaten und die Konto-Bereiche verwaltet werden.
+    				<p>
+    					
+				<% else %>
+				    
+				    <p>
+						Hier können die Kunden-Informationen des Kundencenters und die Benutzerdaten verwaltet werden.
+    				<p>
+    				
+				<% end %>
+				
+    		<% end %>
+	
+		<%end %>
+  		
+	<!-- ############ Konto Beginn #################################################################### -->
+
+	<% if current_page?(:id=> '1') == true and controller_name == "accounts" %> <!-- Konto - Startseite -->
+    
+    	<h2>
+    	
+    		Willkommen in Ihrem persönlichen Konto-Bereich.
+    		
+   	 	</h2>
+    
+		<p>
+		
+			Hier können Sie Ihr Konto aufladen, Ihr persönliches Telefonbuch verwalten, Ihren Ayofone-Phone Service und SMS Service nutzen, Ihre Rechnungen einsehen und Einstellungen vornehmen.
+	
+		</p>
+	
+	<%end %>
+	
+	<!-- ############ So funktioniert's ###################################################################### -->
+	
+	<% if current_page?(:id=> '2') == true and controller_name == "accounts" %> <!-- Konto - So funktioniert's -->
+    
+    	<h2>
+    	
+    		Beispiele
+    		
+   	 	</h2>
+    
+		<p>
+		
+			....
+	
+		</p>
+	
+	<%end %>
+
+	<!-- ############ Konto - Tarifübersicht ############################################################## -->
+	
+	<% if current_page?(:id=> '3') == true and controller_name == "accounts" %> <!-- Konto - Tarifübersicht -->
+    
+    	<h2>
+    	
+    		Globale Tarifinformationen
+    		
+   	 	</h2>
+    
+		<p>
+		
+			....
+	
+		</p>
+	
+	<%end %>
+
+	<!-- ############ Konto - FAQ ############################################################## -->
+	
+	<% if current_page?(:id=> '4') == true and controller_name == "accounts" %> <!-- Konto - FAQ -->
+    
+    	<h2>
+    	
+    		Häufig gestellte Fragen
+    		
+   	 	</h2>
+    
+		<p>
+		
+			....
+	
+		</p>
+	
+	<%end %>
+	
+  	<!-- ############ Konto Ende ############################################################### -->

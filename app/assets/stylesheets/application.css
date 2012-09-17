@@ -18,23 +18,34 @@ body { text-align:left; padding:44px 77px 22px 77px; color:#444; background-colo
 .deaktiviert { color:#900; }
 .gesperrt    { color:#000; text-decoration:line-through;  }
 
-#kundencenter_nav { background-color:#f3f3f3; padding:5px; border-top:1px solid #444; }
-#konto_nav        { background-color:#f3f3f3; padding:5px; border-bottom:1px solid #444; }
-#user_info        { background-color:#ffffff; margin-bottom:7px; }
+#kundencenter_nav   { color:#444444; background-color:#f3f3f3; padding:5px;    border-top:1px solid #444; }
+#kundencenter_nav a { color:#444444; }
+
+#konto_nav          { color:#000000; background-color:#eeeeee; padding:5px; border-bottom:1px solid #444; }
+#konto_nav a        { color:#000000; }
+
+#konto_subnav       { color:#c23234; background-color:#ffffff; padding:5px; border-bottom:0px solid #444; }
+#konto_subnav a     { color:#c23234; }
+
+#user_info { background-color:#ffffff; margin-bottom:7px; }
+
+#admin_link a         { color:#c23234; }
+#einstellungen_link a { color:#c23234; }
+
 
 hr { color:#f3f3f3; height:1px; background-color:#f3f3f3; }
 
 h1 { font-size:2.0em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:5px 0 9px 0px; }
-h2 { font-size:1.2em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:0 0 15px 0; }
+h2 { font-size:1.4em; font-weight:normal; color:#444; margin:0; background-color:#fff; padding:20px 0 5px 0; }
 p  { font-size:0.9em; font-weight:normal; color:#444; padding:5px 0 0 0; margin:0;  }
+
+pre { margin:-5px 0 10px 0; padding:0; }
 
 a       { color:#c23434; text-decoration:none;      }
 a:hover { color:#c23434; text-decoration:underline; }
 
 .content_txt { }
 
-#email,
-#user_email,
 #password,
 #user_password,
 #user_password_confirmation
@@ -45,3 +56,10 @@ a:hover { color:#c23434; text-decoration:underline; }
 .field_with_errors { padding:0px; margin:0; color:#c23234; }
 
 #flash_notice { color:#c23234; background-color:#f3f3f3; border:1px solid #dddddd; padding:10px; }
+
+input  { width:300px; }
+select { width:308px; }
+
+#submit input { width:307px; margin:15px 0 15px 0; }
+
+.disabled input { background-color:#eeeeee; }

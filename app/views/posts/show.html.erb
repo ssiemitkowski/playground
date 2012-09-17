@@ -1,14 +1,20 @@
-
-    <h1><%= @post.title %></h1>
+   	<% if action_name == "show" %>
     
-    <hr />
+    	<hr /> 
+    		
+    <% end %>
+    
+   	<% if action_name == "show" %>
+    		
+    <% end %>
     
     <p class="content_txt">
     	
-    	<pre><%= @post.content %></pre>
+    	<pre><br /><strong><%= @post.title %></strong><br /><br /><%= @post.content %>
+    	</pre>
     	
     	<small>
-    		Nachricht vom <%= localize(@post.created_at, :format => :sample) %>
+    		Kunden-Information vom <%= localize(@post.created_at, :format => :sample) %>
     	</small>
     	
     </p>
@@ -23,6 +29,6 @@
     <hr>
     
     <p>
-    	<%= link_to "Nachrichten-Index", posts_path %>
+    	<%= link_to "Zurück zum Kundencenter", posts_path %>
     </p>
     

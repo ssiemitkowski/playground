@@ -1,13 +1,13 @@
 <% if current_user %>
 <hr>
-<h1>Kundeninformation hinzufügen</h1>
+<h1>Eine Konto-Seite hinzufügen</h1>
 <hr>
-<%= form_for @post do |f| %>
+<%= form_for @account do |f| %>
 
-<% if @post.errors.any? %>
+<% if @account.errors.any? %>
 <h2>Errors:
 	<ul>
-		<% @post.errors.full_messages.each do |message| %>
+		<% @account.errors.full_messages.each do |message| %>
 		<li><%= message %></li>
 		<% end %>
 	</ul>
@@ -18,15 +18,9 @@
 		<%= f.text_field :title %>
 	</p>
 	<p>
-		<%= f.label :content %><br />
-		<%= f.text_area :content %>
-	</p>
-	<p>
 		<%= f.submit "Hinzufügen"; %>
 	</p>
 <% end %>
-<hr>
-<p><%= link_to "Kundencenter", posts_path %><p>
 	
 <% else %>
 
